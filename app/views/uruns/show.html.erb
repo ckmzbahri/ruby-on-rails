@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @urun %>
+
+<div>
+  <%= link_to "Düzenle", edit_urun_path(@urun) %> |
+  <%= link_to "Ürünlere Git", uruns_path %>
+
+  <%= button_to "Sil", @urun, method: :delete %>
+</div>

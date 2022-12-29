@@ -1,0 +1,18 @@
+<div id="<%= dom_id urun %>">
+  <p>
+    <strong>Ürün No:</strong>
+    <%= urun.id %>
+  </p>
+
+  <p>
+    <strong>Marka:</strong>
+    <%= Marka.find(urun.marka_id).name %>
+  </p>
+
+  <p>
+    <strong>Ürün:</strong>
+    <%= urun.name %>
+  </p>
+
+
+</div>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @marka %>
+
+<div>
+  <%= link_to "Markayı Güncelle", edit_marka_path(@marka) %> |
+  <%= link_to "Markalara Git", markas_path %>
+
+  <%= button_to "Markayı Sil", @marka, method: :delete %>
+</div>

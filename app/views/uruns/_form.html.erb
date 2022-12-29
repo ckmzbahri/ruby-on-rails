@@ -1,0 +1,39 @@
+<%= form_with(model: urun) do |form| %>
+  <% if urun.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(urun.errors.count, "error") %> prohibited this urun from being saved:</h2>
+
+      <ul>
+        <% urun.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, 'Ürün Adı',style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+  <%@markalarListesi = Marka.all
+  %>
+ <%= form.select(:marka_id) do %>
+    <% @markalarListesi.each do |l| -%>
+      <%= content_tag(:option, l.name, value: l.id) %>
+    <% end %>
+<% end %>
+  <br>
+
+    <!--<%= form.number_field :marka_id %>
+        <%= form.label :marka_id, style: "display: block" %>
+    <%= form.number_field :marka_id %>
+    
+    -->
+  </div>
+
+  <div>
+    <%= form.submit 'Kaydet' %>
+  </div>
+<% end %>

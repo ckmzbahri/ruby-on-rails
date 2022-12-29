@@ -1,0 +1,28 @@
+<h1 class="d-flex justify-content-center">Markalar</h1>
+<div id="markas">
+<table class="table table-bordered table-striped" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Marka No</th>
+      <th scope="col">Marka Adı </th>
+      <th scope="col">Göster </th>
+      <th scope="col">Düzenle </th>
+      <th scope="col">Sil </th>   
+    </tr>
+    
+  </thead>
+  <tbody>
+  <% @markas.each do |marka| %>
+ 
+    <tr>
+      <td><%= marka.id%></td>
+      <td><%= marka.name%></td>
+      <td><%= link_to "Göster", marka %></td>
+      <td><%= link_to "Düzenle", edit_marka_path(marka) %></td>
+      <td><%= link_to "Sil", marka, method: :delete, data: {confirm: 'Marka Silinecek'} %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to "Marka Ekle", new_marka_path %>

@@ -1,0 +1,29 @@
+<h1 class="d-flex justify-content-center">Ürünler</h1>
+<div id="markas">
+<table class="table table-bordered table-striped" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Ürün No</th>
+      <th scope="col">Marka Adı </th>
+       <th scope="col">Ürün Adı </th>
+      <th scope="col">Göster </th>
+      <th scope="col">Düzenle </th>
+      <th scope="col">Sil </th>   
+    </tr>
+    
+  </thead>
+  <tbody>
+  <% @uruns.each do |urun| %> 
+    <tr>
+     <td><%= urun.id%></td>
+      <td><%= Marka.find(urun.marka_id).name%> </td>
+       <td><%= urun.name%></td>
+      <td><%= link_to "Göster", urun %></td>
+      <td><%= link_to "Düzenle", edit_urun_path(urun) %></td>
+      <td><%= link_to "Sil", urun, method: :delete, data: {confirm: 'Ürün Silinecek'} %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to "Ürün Ekle", new_urun_path %>
